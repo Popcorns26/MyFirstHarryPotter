@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     private CharacterController controller;
+    private InputActions inputs;
     //private Rigidbody rb;
     private float movementX;
     private float movementY;
@@ -16,6 +18,18 @@ public class PlayerController : MonoBehaviour
     public float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
     public Transform cam;
+
+    private void Awake()
+    {
+        inputs = new InputActions();
+        inputs.Player.Move.performed += context => SendMessage();
+    }
+
+    private void SendMessage()
+    {
+        Debug.Log("Moved");
+    }
+
     // Start is called before the first frame update
     void Start()
     {

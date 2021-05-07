@@ -25,6 +25,7 @@ public class NoteSpawner : MonoBehaviour
     public void SpawnNote(Transform line)
     {
         GameObject gameObject1 = Instantiate(prefabToInstantiate, line.position, Quaternion.identity);
-        gameObject1.transform.parent = transform;
+        //gameObject1.transform.parent = transform;
+        gameObject1.transform.SetParent(transform);
     }
 }

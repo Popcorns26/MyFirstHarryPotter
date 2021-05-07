@@ -10,4 +10,9 @@ public class MovingNote : MonoBehaviour
     {
         transform.position -= new Vector3(speed, 0, 0) * Time.deltaTime;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Harry");
+    }
 }
